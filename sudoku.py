@@ -192,14 +192,19 @@ def getCoordinates():
     rowAndColumn = ''
     coordinates = [0, 0]
     while True:
+        columIndexes = {'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6,'H':7,'I':8}
         temp_rowAndColumn = ''
         while True:
             temp_rowAndColumn = input("  > ")
             columnProvided = len(temp_rowAndColumn) > 1
             if(columnProvided):
-                break
+                if(temp_rowAndColumn[1] in columIndexes):
+                    break
+                else:
+                    print("Please provide a valid column. (A - I)")
             else:
                 print("Please provide 2 values")
+
         row = temp_rowAndColumn[0]
         column = temp_rowAndColumn[1]
         if(column.isalpha()):
@@ -210,7 +215,6 @@ def getCoordinates():
         else:
             rowAndColumn = temp_rowAndColumn
             coordinates[0] = int(row) - 1
-            columIndexes = {'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6,'H':7,'I':8}
             coordinates[1] = columIndexes.get(column)
             break
     return rowAndColumn, coordinates
