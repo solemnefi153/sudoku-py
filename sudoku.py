@@ -194,21 +194,22 @@ def getCoordinates():
     while True:
         columIndexes = {'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6,'H':7,'I':8}
         temp_rowAndColumn = ''
+        row = ''
+        column = ''
         while True:
             temp_rowAndColumn = input("  > ")
             columnProvided = len(temp_rowAndColumn) > 1
             if(columnProvided):
-                if(temp_rowAndColumn[1] in columIndexes):
+                column = temp_rowAndColumn[1]
+                if(column.isalpha()):
+                    column = column.upper()
+                if(column in columIndexes):
                     break
                 else:
                     print("Please provide a valid column. (A - I)")
             else:
                 print("Please provide 2 values")
-
         row = temp_rowAndColumn[0]
-        column = temp_rowAndColumn[1]
-        if(column.isalpha()):
-            column = column.upper()
         if((not column.isalpha()) or (not row.isdigit()) or int(row) > 9 or  int(row) < 1):
             print("ERROR: Square " + row + column + " is invalid")
             print("Please provide valid coordinates(e.g. 1A)")
@@ -278,7 +279,7 @@ def editOneSquare():
     global GAME_STATUS
     rowAndColumn, coordinates = getCoordinates()
     if(squareIsEmpty(rowAndColumn, coordinates)):
-        number = input("What value do you want at '" + rowAndColumn + ": ") 
+        number = input("What value do you want at '" + rowAndColumn[0] + rowAndColumn[1].upper() + "' : ") 
         while(not numberIsValidInSquare(coordinates, number)):
             print("ERROR: Value '" + number + "' in square '"  + rowAndColumn + "' is invalid")
             showPossibleValuesOfSquare(rowAndColumn, coordinates, True)
