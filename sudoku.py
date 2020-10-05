@@ -192,7 +192,14 @@ def getCoordinates():
     rowAndColumn = ''
     coordinates = [0, 0]
     while True:
-        temp_rowAndColumn = input("  > ")
+        temp_rowAndColumn = ''
+        while True:
+            temp_rowAndColumn = input("  > ")
+            columnProvided = len(temp_rowAndColumn) > 1
+            if(columnProvided):
+                break
+            else:
+                print("Please provide 2 values")
         row = temp_rowAndColumn[0]
         column = temp_rowAndColumn[1]
         if(column.isalpha()):
