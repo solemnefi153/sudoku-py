@@ -1,13 +1,10 @@
 # Sudoku-py
 
 ## Description 
-This is an implementation of the clasic sudoku game in python
+This is an implementation of the classic sudoku game using python
+This program uses the terminal to display the sudoku board and  prompts the user  for commands, coordinates and values to play the game. 
 <br>
-This program uses the terminal to display the sudoku board and prompt the user for commands, coordinates and values
-<br>
-The user can load and save a game using the propts in the game. 
-<br>
-The games are saved as a 'txt' filed and are read by the program to load the status of a sudoku session
+The games are saved as a 'txt' file and are read by the program to load the status of a previous  sudoku session
 
 
 
